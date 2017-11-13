@@ -154,9 +154,9 @@ public class SocketPlugin extends CordovaPlugin {
 
 Charset latin1Charset = Charset.forName("Windows-1252"); 
 CharBuffer charBuffer = latin1Charset.decode(ByteBuffer.wrap(decodedData));
-data = charBuffer.toString();
+//data = charBuffer.toString();
 data = String.valueOf(charBuffer);
-data = String.valueOf(decodedData);
+//data = String.valueOf(decodedData);
 
                                         socket.write(data);
 
