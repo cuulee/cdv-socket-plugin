@@ -144,12 +144,15 @@ public class SocketPlugin extends CordovaPlugin {
                                     if (format.equals("base64")) {
                                         //data = "! 0 200 200 800 1\r\nLABEL\r\nCONTRAST 0\r\nTONE -30\r\nSPEED 2\r\nPAGE-WIDTH 304\r\nBAR-SENSE\r\nPREFEED -25\r\n;// PAGE 0000000003000800\r\nRIGHT \r\nT90 4 1 45 72 33\r\nLEFT\r\nVB 128 1 0 60 224 756 0000000000025\r\nT90 7 0 264 408 0000000000025\r\nT90 4 0 8 780 Ervilha Torta\r\nT90 4 0 58 780 kg\r\nT90 4 0 108 780 \r\nT90 4 0 158 780 \r\nRIGHT \r\nT90 7 0 239 125 10015\r\nT90 7 0 264 150 2016/05/04\r\nLEFT\r\nT90 4 1 90 400 R$\r\nRIGHT 53 -1\r\nT90 4 4 50 560 33,\r\nLEFT \r\n\r\nFORM\r\nPRINT\r\n";
                                         //byte[] stringBytes = data.getBytes(Charset.forName("Windows-1252"));
-                                        byte[] stringBytes = data.getBytes();
-                                        String encodedData = Base64.encodeToString(stringBytes, Base64.DEFAULT);
-                                        byte[] decodedData = Base64.decode(encodedData, Base64.DEFAULT);
-                                        data = new String(decodedData);
-                                    }
+//                                        byte[] stringBytes = data.getBytes();
+//                                        String encodedData = Base64.encodeToString(stringBytes, Base64.DEFAULT);
+                                        byte[] decodedData = Base64.decode(data, Base64.DEFAULT);
+//                                        data = new String(decodedData);
+socket.write(decodedData);
+                                    } else {
                                     socket.write(data);
+                                        
+                                    }
 					
 					// ending send process
 					callbackContext.success();	
