@@ -122,6 +122,7 @@ public class SocketPlugin extends CordovaPlugin {
 				// retrieving parameters
 				String key = args.getString(0);
 				String data = args.getString(1);
+                                String format = args.getString(2);
 				
 				// getting socket
 				socket = this.pool.get(key);
