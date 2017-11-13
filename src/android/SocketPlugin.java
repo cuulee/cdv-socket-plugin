@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.nio.charset.Charset;
+import java.nio.*;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -149,8 +150,14 @@ public class SocketPlugin extends CordovaPlugin {
                                         byte[] decodedData = Base64.decode(data, Base64.DEFAULT);
 //                                        socket.writeBytes(decodedData);
                                         
-                                        data = new String(decodedData);
+//                                        data = new String(decodedData);
+
+Charset latin1Charset = Charset.forName("Windows-1252"); 
+CharBuffer charBuffer = latin1Charset.decode(ByteBuffer.wrap(decodedData));
+data = charBuffer.toString();
+
                                         socket.write(data);
+
                                     } else {
                                     socket.write(data);
                                         
