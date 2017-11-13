@@ -148,7 +148,7 @@ public class SocketPlugin extends CordovaPlugin {
 //                                        String encodedData = Base64.encodeToString(stringBytes, Base64.DEFAULT);
                                         byte[] decodedData = Base64.decode(data, Base64.DEFAULT);
 //                                        data = new String(decodedData);
-socket.write(decodedData);
+socket.writeBytes(decodedData);
                                     } else {
                                     socket.write(data);
                                         

@@ -98,6 +98,10 @@ public class Connection extends Thread {
 	public void write(String data) {
 		this.writer.println(data);
 	}
+        
+        public void writeBytes(byte[] data) {
+            this.writer.println(data);
+        }
 
 
 
